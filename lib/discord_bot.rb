@@ -43,7 +43,7 @@ end
 
 bot.voice_state_update do |event|
   if event.channel # ユーザーが部屋に入室した場合
-    event.respond "現在の時間は #{Time.now} です"
+    event.server.text_channels.first.send_message("現在の時間は #{Time.now} です")
   end
 end
 
