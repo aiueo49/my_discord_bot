@@ -1,22 +1,60 @@
-<p><h1 class="text-2xl font-bold mb-4">学習時間一覧</h1></p>
+<div style="display: flex; flex-direction: column;">
+  <div>
+    <h1 class="text-2xl font-bold mb-4">学習時間一覧</h1>
+  </div>
 
-<p class="mb-4">今日の学習時間の合計: <%= Time.at(@total_study_time_today).utc.strftime("%H時間%M分%S秒") %></p>
+  <div>
+    <p class="mb-4">今日の学習時間の合計: <%= Time.at(@total_study_time_today).utc.strftime("%H時間%M分%S秒") %></p>
+    <p class="mb-4">全ての学習時間の合計: <%= Time.at(@total_study_time).utc.strftime("%H時間%M分%S秒") %></p>
+  </div>
 
-<table class="w-full text-left border-collapse">
-  <thead>
-    <tr>
-      <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">ユーザーID</th>
-      <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">学習時間</th>
-      <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">日付</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @study_times.each do |study_time| %>
-      <tr class="hover:bg-grey-lighter">
-        <td class="py-4 px-6 border-b border-grey-light"><%= study_time.user_id %></td>
-        <td class="py-4 px-6 border-b border-grey-light"><%= Time.at(study_time.study_time).utc.strftime("%H時間%M分%S秒") %></td>
-        <td class="py-4 px-6 border-b border-grey-light"><%= study_time.date %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <% %w[月 火 水 木 金 土 日].each do |day| %>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <%= day %>
+                  </th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                <% @weekly_study_time.each do |study_time| %>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900"><%= Time.at(study_time).utc.strftime("%H時間%M分%S秒") %></div>
+                  </td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">ユーザーID</th>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">学習時間</th>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">日付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @study_times.each do |study_time| %>
+          <tr class="hover:bg-grey-lighter">
+            <td class="py-4 px-6 border-b border-grey-light"><%= study_time.user_id %></td>
+            <td class="py-4 px-6 border-b border-grey-light"><%= Time.at(study_time.study_time).utc.strftime("%H時間%M分%S秒") %></td>
+            <td class="py-4 px-6 border-b border-grey-light"><%= study_time.date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
