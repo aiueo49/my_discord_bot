@@ -1,19 +1,22 @@
-<h1>学習時間一覧</h1>
+<p><h1 class="text-2xl font-bold mb-4">学習時間一覧</h1></p>
 
-<p>今日の学習時間の合計: <%= Time.at(@total_study_time_today).utc.strftime("%H時間%M分%S秒") %></p>
+<p class="mb-4">今日の学習時間の合計: <%= Time.at(@total_study_time_today).utc.strftime("%H時間%M分%S秒") %></p>
 
-<table>
-  <tr>
-    <th>ユーザーID</th>
-    <th>学習時間</th>
-    <th>日付</th>
-  </tr>
-
-  <% @study_times.each do |study_time| %>
+<table class="w-full text-left border-collapse">
+  <thead>
     <tr>
-      <td><%= study_time.user_id %></td>
-      <td><%= Time.at(study_time.study_time).utc.strftime("%H時間%M分%S秒") %></td>
-      <td><%= study_time.date %></td>
+      <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">ユーザーID</th>
+      <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">学習時間</th>
+      <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">日付</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @study_times.each do |study_time| %>
+      <tr class="hover:bg-grey-lighter">
+        <td class="py-4 px-6 border-b border-grey-light"><%= study_time.user_id %></td>
+        <td class="py-4 px-6 border-b border-grey-light"><%= Time.at(study_time.study_time).utc.strftime("%H時間%M分%S秒") %></td>
+        <td class="py-4 px-6 border-b border-grey-light"><%= study_time.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
