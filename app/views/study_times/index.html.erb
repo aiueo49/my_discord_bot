@@ -1,0 +1,17 @@
+<h1>学習時間一覧</h1>
+
+<table>
+  <tr>
+    <th>ユーザーID</th>
+    <th>学習時間</th>
+    <th>日付</th>
+  </tr>
+
+  <% @study_times.each do |study_time| %>
+    <tr>
+      <td><%= study_time.user_id %></td>
+      <td><%= Time.at(study_time.study_time).utc.strftime("%H時間%M分%S秒") %></td>
+      <td><%= study_time.date %></td>
+    </tr>
+  <% end %>
+</table>

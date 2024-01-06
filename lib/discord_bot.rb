@@ -60,6 +60,7 @@ bot.voice_state_update do |event|
     study_time = leave_time - join_time
     formatted_study_time = Time.at(study_time).utc.strftime("%H時間%M分%S秒")
     event.server.text_channels.first.send_message("#{event.user.name}さんの学習時間は #{formatted_study_time} です")
+    StudyTime.create(user_id: event.user.id, study_time: study_time, date: Date.today)
     user_join_times.delete(event.user.id)
   end
 end
