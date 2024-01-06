@@ -53,14 +53,15 @@ user_join_times = {}
 
 bot.voice_state_update do |event|
   if event.channel && !user_join_times[event.user.id] # ユーザーが部屋に入室した場合
-    user_join_times[event.user.id] = Time.now
+    user_join_times[event.user.id] = {join_time: Time.now, date: Date.today}
   elsif !event.channel && user_join_times[event.user.id] # ユーザーが部屋を退出した場合
-    join_time = user_join_times[event.user.id]
+    join_time = user_join_times[event.user.id][:join_time]
+    date = user_join_times[event.user.id][:date]
     leave_time = Time.now
     study_time = leave_time - join_time
     formatted_study_time = Time.at(study_time).utc.strftime("%H時間%M分%S秒")
     event.server.text_channels.first.send_message("#{event.user.name}さんの学習時間は #{formatted_study_time} です")
-    StudyTime.create(user_id: event.user.id, study_time: study_time, date: Date.today)
+    StudyTime.create(user_id: event.user.id, study_time: study_time, date: date)
     user_join_times.delete(event.user.id)
   end
 end

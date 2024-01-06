@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_06_051943) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_06_055614) do
   create_table "study_times", force: :cascade do |t|
     t.string "user_id"
     t.float "study_time"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "join_time"
   end
 
 end

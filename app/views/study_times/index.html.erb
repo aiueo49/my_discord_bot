@@ -1,5 +1,7 @@
 <h1>学習時間一覧</h1>
 
+<p>今日の学習時間の合計: <%= Time.at(@total_study_time_today).utc.strftime("%H時間%M分%S秒") %></p>
+
 <table>
   <tr>
     <th>ユーザーID</th>
