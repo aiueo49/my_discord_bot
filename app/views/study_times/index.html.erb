@@ -20,6 +20,9 @@
                     <%= day %>
                   </th>
                 <% end %>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  週の合計時間
+                </th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -29,6 +32,9 @@
                     <div class="text-sm text-gray-900"><%= Time.at(study_time).utc.strftime("%H時間%M分%S秒") %></div>
                   </td>
                 <% end %>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-900"><%= Time.at(@total_study_time_this_week).utc.strftime("%H時間%M分%S秒") %></div>
+                </td>      
               </tr>
             </tbody>
           </table>
