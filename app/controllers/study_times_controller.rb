@@ -34,5 +34,15 @@ class StudyTimesController < ApplicationController
       study_time = study_times.find { |st| st.date == date }
       @calendar << { date: date, study_time: study_time&.study_time }
     end
+    # 週の合計学習時間を計算
+    @weekly_study_times = @calendar.each_slice(7).map do |week|
+      week.sum { |day| day[:study_time] || 0 }
+    end
+
+    # 月の最終日の次の日から次の週の日曜日までの日数を計算
+    remaining_days = (7 - @calendar.last[:date].wday) % 7
+
+    # 月の最終日の次の日から次の週の日曜日までの日数だけ空の日付を追加
+    remaining_days.times { @calendar << { date: nil, study_time: nil } }
   end
 end

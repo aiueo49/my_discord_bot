@@ -8,23 +8,26 @@
     <p class="mb-4">全ての学習時間の合計: <%= Time.at(@total_study_time).utc.strftime("%H時間%M分%S秒") %></p>
   </div>
 
-  <table class="table-auto w-full">
-    <thead>
+  <table class="table-auto w-full text-center">
+    <thead class="bg-gray-200">
       <tr>
-        <% %w[月 火 水 木 金 土 日].each do |day| %>
+        <% %w[月 火 水 木 金 土 日 合計].each do |day| %>
           <th class="px-4 py-2"><%= day %></th>
         <% end %>
       </tr>
     </thead>
     <tbody>
-      <% @calendar.each_slice(7) do |week| %>
+      <% @calendar.each_slice(7).with_index do |week, index| %>
         <tr>
           <% week.each do |day| %>
             <td class="border px-4 py-2 hover:bg-blue-200 transition-colors duration-200">
-              <%= day[:date]&.day %><br>
-              <%= Time.at(day[:study_time]).utc.strftime("%H時間%M分%S秒") if day[:study_time] %>
+              <div class="font-bold"><%= day[:date]&.day if day[:date] %></div>
+              <div class="text-sm text-gray-500"><%= Time.at(day[:study_time]).utc.strftime("%H時間%M分%S秒") if day[:study_time] %></div>
             </td>
           <% end %>
+          <td class="border px-4 py-2">
+            <%= Time.at(@weekly_study_times[index]).utc.strftime("%H時間%M分%S秒") %>
+          </td>
         </tr>
       <% end %>
     </tbody>
