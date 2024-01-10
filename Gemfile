@@ -2,6 +2,12 @@ source "https://rubygems.org"
 
 ruby "3.3.0"
 
+# environment variables
+gem 'dotenv-rails', groups: [:development, :test]
+
+# OAuth2
+gem 'omniauth-discord'
+
 gem 'discordrb'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

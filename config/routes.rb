@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "study_times#index"
+  # root to: redirect('/auth/discord')
   resources :study_times, only: [:index]
+
+  get '/auth/:provider/callback', to: 'sessions#create'
 end
