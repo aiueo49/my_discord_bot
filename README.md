@@ -145,4 +145,4 @@ URLにアクセスできなかったので現在は稼働していないのか�
 
 
 ## ■ ER図
-https://lucid.app/lucidchart/cf69ba25-b305-4a18-a026-b60a406f76cb/edit?viewport_loc=-1744%2C-552%2C2052%2C1143%2C0_0&invitationId=inv_9ce974dd-244a-4e72-a932-6d8455c085a9
+[![Image from Gyazo](https://i.gyazo.com/4cfd243e31a3b5a27981b4f0677c3dac.png)](https://gyazo.com/4cfd243e31a3b5a27981b4f0677c3dac)
