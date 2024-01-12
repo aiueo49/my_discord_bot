@@ -143,4 +143,7 @@ URLにアクセスできなかったので現在は稼働していないのか�
 ## ■ 機能の実装方針予定
 ・Discord APIを使用したログイン機能の実装
 
+## 画面遷移図
+https://www.figma.com/file/2tSusw3yavG3JeRrsplpFD/MyDiscordBot?type=whiteboard&t=MDLIsS7nxibzXhZC-0
+
 
