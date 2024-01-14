@@ -145,4 +145,4 @@ URLにアクセスできなかったので現在は稼働していないのか�
 
 
 ## ■ ER図
-[![Image from Gyazo](https://i.gyazo.com/4cfd243e31a3b5a27981b4f0677c3dac.png)](https://gyazo.com/4cfd243e31a3b5a27981b4f0677c3dac)
+[![Image from Gyazo](https://i.gyazo.com/1c0deab5cc84d49fda4cf42bc232d2f5.png)](https://gyazo.com/1c0deab5cc84d49fda4cf42bc232d2f5)
