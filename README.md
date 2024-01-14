@@ -144,6 +144,6 @@ URLにアクセスできなかったので現在は稼働していないのか�
 ・Discord APIを使用したログイン機能の実装
 
 ## 画面遷移図
-https://www.figma.com/file/gnIzLlFt6AHXvX8c3kQn3o/%E7%84%A1%E9%A1%8C?type=design&node-id=0-1&mode=design&t=R3pqSlaJBrimGVyq-0
+https://www.figma.com/file/gnIzLlFt6AHXvX8c3kQn3o/%E7%84%A1%E9%A1%8C?type=design&node-id=0-1&mode=design&t=8NEOjJyPKLbjuPNU-0
 
 
