@@ -147,3 +147,5 @@ URLにアクセスできなかったので現在は稼働していないのか�
 https://www.figma.com/file/gnIzLlFt6AHXvX8c3kQn3o/%E7%84%A1%E9%A1%8C?type=design&node-id=0-1&mode=design&t=8NEOjJyPKLbjuPNU-0
 
 
+## ■ ER図
+[![Image from Gyazo](https://i.gyazo.com/e85e2f0e1e3544e5d05ddd2cdca51ae6.png)](https://gyazo.com/e85e2f0e1e3544e5d05ddd2cdca51ae6)
